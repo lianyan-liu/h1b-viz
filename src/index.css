@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 42 35% 96%;  /* warm paper */
+    --foreground: 24 25% 18%;  /* ink brown, not pure black */
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Deep red (primary accent like infographic bars & links) */
+    --primary: 6 72% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 6 72% 35%;
+    
+    /* Subtle neutral chips / panels */
+    --secondary: 30 20% 92%;
+    --secondary-foreground: 24 25% 18%;
+
+    --muted: 30 18% 90%;
+    --muted-foreground: 24 15% 35%;
+
+    /* Accent green for positive badges if needed */
+    --accent: 85 42% 39%;
+    --accent-foreground: 54 81% 48%;
+
+    --destructive: 2 75% 46%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 146 35% 40%;
+    --success-foreground: 0 0% 98%;
+
+    --warning: 35 85% 52%;
+    --warning-foreground: 24 25% 18%;
+
+    /* Status colors aligned to your charts */
+    --certified: 85 42% 39%;
+    --certified-withdrawn: 54 81% 48%;
+    --withdrawn: 32 81% 52%;
+    --denied: 218 50% 27%;
+
+    /* Lines, inputs, rings */
+    --border: 30 20% 80%;
+    --input: 30 20% 80%;
+    --ring: 6 72% 45%;
+
+    /* Softer radius & shadows for infographic vibe */
+    --radius: 0.75rem;
+    
+    --gradient-hero: linear-gradient(135deg, hsl(42 35% 96%), hsl(42 35% 92%));
+    --gradient-subtle: linear-gradient(180deg, hsl(42 35% 98%), hsl(42 30% 95%));
+    --shadow-soft: 0 2px 8px hsl(24 20% 20% / 0.06);
+    --shadow-medium: 0 8px 24px hsl(24 20% 20% / 0.12);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 30% 10%;
+    --foreground: 210 30% 95%;
+
+    --card: 215 28% 12%;
+    --card-foreground: 210 30% 95%;
+
+    --popover: 215 28% 12%;
+    --popover-foreground: 210 30% 95%;
+
+    --primary: 215 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 215 75% 45%;
+
+    --secondary: 215 25% 18%;
+    --secondary-foreground: 210 30% 95%;
+
+    --muted: 215 25% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 45 95% 65%;
+    --accent-foreground: 215 30% 10%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 65% 50%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 35 90% 65%;
+    --warning-foreground: 215 30% 10%;
+
+    --certified: 145 65% 50%;
+    --certified-withdrawn: 145 55% 70%;
+    --withdrawn: 45 90% 70%;
+    --denied: 0 75% 60%;
+
+    --border: 215 25% 22%;
+    --input: 215 25% 22%;
+    --ring: 215 70% 55%;
+    
+    --gradient-hero: linear-gradient(135deg, hsl(215 75% 20%), hsl(215 70% 35%));
+    --gradient-subtle: linear-gradient(180deg, hsl(215 30% 10%), hsl(215 28% 12%));
+    --shadow-soft: 0 2px 8px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 24px hsl(0 0% 0% / 0.4);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .chart-tooltip {
+    @apply bg-card border border-border rounded-lg shadow-lg p-3 text-sm;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24;
+  }
+  
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold text-foreground mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-muted-foreground max-w-3xl;
+  }
+}
