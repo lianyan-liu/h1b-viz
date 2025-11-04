@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import Papa from "papaparse";
 import { geoPath, geoAlbersUsa } from "d3-geo";
@@ -29,6 +29,50 @@ const GeographicInsights = () => {
   const [geoData, setGeoData] = useState<any>(null);
   const [hoveredState, setHoveredState] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+    
+    const nameToAbbr = useMemo(() => {
+        const m: Record<string, string> = {};
+        Object.keys(stateMetrics).forEach(abbr => {
+            const name = stateMetrics[abbr]?.name;
+            if (name) m[name] = abbr;
+        });
+        return m;}, [stateMetrics]);
+    
+    const legendSpec = useMemo(() => {
+        if (selectedMetric === "approvalRate") {
+            return {
+                title: "Approval Rate",
+                bins: [
+                    { label: "< 87%",   color: "hsl(var(--destructive))" },
+                    { label: "87–90%",  color: "hsl(var(--warning))" },
+                    { label: "90–93%",  color: "hsl(var(--certified-withdrawn))" },
+                    { label: "≥ 93%",   color: "hsl(var(--success))" },
+                ],
+            };
+        }
+        if (selectedMetric === "medianWage") {
+            return {
+                title: "Median Wage",
+                bins: [
+                    { label: "< $110k",      color: "hsl(var(--primary))" },
+                    { label: "$110k–120k",   color: "hsl(var(--warning))" },
+                    { label: "$120k–140k",   color: "hsl(var(--certified-withdrawn))" },
+                    { label: "≥ $140k",      color: "hsl(var(--success))" },
+                ],
+            };
+        }
+        // applications
+        return {
+            title: "Applications",
+            bins: [
+                { label: "< 5k",    color: "hsl(var(--primary))" },
+                { label: "5k–10k",  color: "hsl(var(--warning))" },
+                { label: "10k–20k", color: "hsl(var(--certified-withdrawn))" },
+                { label: "≥ 20k",   color: "hsl(var(--success))" },
+            ],
+        };
+    }, [selectedMetric, stateMetrics]);
+
 
   useEffect(() => {
     // Load state data
@@ -176,7 +220,50 @@ const GeographicInsights = () => {
                 );
               })}
             </g>
+            <g pointerEvents="none">
+             {geoData?.features.map((f: any) => {
+               const [cx, cy] = pathGenerator.centroid(f);
+               const abbr = nameToAbbr[f.properties?.name as string];
+               if (!abbr || !Number.isFinite(cx) || !Number.isFinite(cy)) return null;
+               return (
+                 <text
+                   key={`${f.id}-label`}
+                   x={cx}
+                   y={cy}
+                   textAnchor="middle"
+                   style={{
+                     fill: "hsl(var(--foreground))",
+                     opacity: 0.8,
+                     fontSize: "11px",
+                     fontWeight: 700,
+                     paintOrder: "stroke",
+                     stroke: "hsl(var(--card))",
+                     strokeWidth: 3,
+                   }}
+                 >
+                   {abbr}
+                 </text>
+               );
+             })}
+           </g>
           </svg>
+          
+          <div className="absolute bottom-1 right-4 bg-card/95 border border-border rounded-lg shadow-lg px-3 py-2">
+            <div className="text-xs font-semibold mb-1 text-muted-foreground">{legendSpec.title}</div>
+            <div className="flex items-center gap-2">
+              {legendSpec.bins.map((b, i) => (
+                <div key={i} className="flex items-center gap-1">
+                  <span
+                    className="inline-block rounded-sm"
+                    style={{ width: 14, height: 10, background: b.color }}
+                  />
+                  <span className="text-xs text-muted-foreground">{b.label}</span>
+                  {i < legendSpec.bins.length - 1 && <span className="mx-1 text-muted-foreground/60">|</span>}
+                </div>
+              ))}
+            </div>
+          </div>
+
 
           {hoveredState && getStateData(hoveredState) && (
             <div

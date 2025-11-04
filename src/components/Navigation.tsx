@@ -15,8 +15,8 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: "#overview", label: "Overview" },
-    { href: "#trends", label: "Trends" },
+    { href: "#overview", label: "Trends" },
+    //{ href: "#trends", label: "Trends" },
     { href: "#wages", label: "Wages" },
     { href: "#occupations", label: "Occupations" },
     { href: "#geography", label: "Geography" },
@@ -44,7 +44,7 @@ const Navigation = () => {
             onClick={() => scrollToSection("#hero")}
             className="text-xl font-bold text-foreground hover:text-primary transition-colors"
           >
-            H1B Insights
+            H1B Visa Data
           </button>
 
           {/* Desktop Navigation */}
