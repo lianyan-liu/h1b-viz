@@ -118,13 +118,80 @@ const OccupationInsights = () => {
 
   return (
     <section id="occupations" className="section-container bg-background">
-      <div className="text-center mb-12">
+      <div className="text-center mb-8">
         <h2 className="section-title">Top Occupations and Sponsors</h2>
-        <p className="section-subtitle mx-auto">
-          Discover which professions and companies dominate H1B filings, and how they differ in approval rates and compensation.
+        <p className="text-justify text-left text-base md:text-lg text-muted-foreground mb-3">
+          When analyzing certified H-1B Labor Condition Applications across the United
+          States, several occupation groups consistently rise to the top in terms of
+          median salary. Among them, three major categories clearly dominate the upper end of the wage spectrum.
         </p>
       </div>
+      
+        <div className="mb-6 grid gap-8 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.5fr)] items-center">
+          <div className="flex justify-center">
+            <img
+              src="/top paying industry.svg"
+              alt="Illustration of top paying H1B jobs and industries"
+              className="max-w-full h-auto"
+            />
+          </div>
 
+          <div>
+            <p className="text-xl md:text-base text-muted-foreground mb-3">
+               
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-xl md:text-lg text-muted-foreground leading-relaxed">
+              <li>
+                  <strong className="text-primary">Healthcare Practitioners</strong> — This group
+                  includes physicians, surgeons, anesthesiologist, diagnostic specialists
+                  and other advanced medical specialists. With a median salary of <strong>$475k</strong>,
+                  healthcare stands as the highest-earning profession cluster
+                  in the H-1B landscape. These roles command high pay due to intense
+                  educational requirements, long training pipelines, and strict licensing barriers
+                  that limit the supply of qualified professionals.
+              </li>
+              <li>
+                  <strong className="text-primary">Management Occupations</strong> — Executive and senior leadership
+                  roles such as CEOs, product leaders, and IT management positions form
+                  another top-earning segment. These jobs involve significant
+                  decision-making responsibility, cross-functional oversight, and deep
+                  industry experience, leading employers to offer premium salaries well above
+                  typical technical or analyst roles.
+              </li>
+              <li>
+                  <strong className="text-primary">Sales and Related Occupations</strong> — Particularly in financial
+                  services, securities trading, and high-end real estate, some roles
+                  deliver exceptionally high total compensation. While base salaries can vary
+                  widely, the potential for substantial commissions and performance-linked
+                  incentives pushes these occupations into the upper salary tier of
+                  H-1B-supported jobs.
+              </li>
+            </ul>
+            <p className="text-base md:text-lg text-muted-foreground mb-3 mt-4">
+                Beyond these top three categories, several other professions also
+                demonstrate strong earning potential in the H-1B market. <strong>Computer
+                occupations</strong> remain one of the fastest-growing and
+                consistently well-paid fields due to sustained demand for advanced technical
+                skills. <strong>Business and financial operations roles</strong> also
+                offer competitive compensation, though salaries vary widely with seniority.
+                Meanwhile, <strong>architecture and engineering occupations</strong> continue
+                to command solid pay driven by their technical rigor and steady cross-industry demand.
+            </p>
+          </div>
+        </div>
+        
+        <div className="mt-4 mb-12">
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            Taken together, these patterns highlight how <strong className = "text-[hsl(216,50%,30%)]">specialized skills,
+            high educational barriers, professional licensing, and strong industry
+            demand</strong> shape the salary distribution across H-1B occupations.
+            Employers turn to H-1B hiring in areas where U.S. supply is limited or
+            competition for talent is fierce. Consequently, the
+            highest-paying H-1B jobs tend to have collective requirements that justify the
+            substantial wages observed in these roles.
+          </p>
+        </div>
+          
       <div className="bg-card rounded-2xl p-6 shadow-lg">
         <div className="mb-8">
           <label className="block text-sm font-medium mb-2">Select Occupation:</label>
