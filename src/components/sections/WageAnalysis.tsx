@@ -206,8 +206,8 @@ const WageAnalysis = () => {
     <section id="wages" className="section-container" style={{ background: "var(--gradient-subtle)" }}>
       <div className="text-center mb-8">
         <h2 className="section-title">Do Higher Wages Mean Higher Approval?</h2>
-        <p className="section-subtitle mx-auto">
-          Relationship between compensation and certification outcomes, using real LCA records (2020–2024).
+        <p className="text-justify section-subtitle mx-auto">
+          When you zoom out across the full spectrum of H-1B wages, a simple pattern emerges: higher pay does help—up to a point.
         </p>
       </div>
 
@@ -307,7 +307,7 @@ const WageAnalysis = () => {
         {view === "rolling" && !loading && rollingData.length > 0 && (
           <div className="mt-6 p-4 bg-success/10 border border-success/30 rounded-lg">
             <p className="text-sm text-center">
-              <span className="font-semibold text-success">Insight:</span> Dynamic Y-axis + light smoothing/down-sampling reveal a clearer upward trend with wage before stabilizing.
+              <span className="font-semibold text-success">Guidance:</span> The rolling curve reveals the overall trend behind noisy individual data points—showing how approval rates shift as wages rise without being distorted by outliers. Use it to understand the general direction of the wage–approval relationship rather than interpreting any single point literally.
             </p>
           </div>
         )}
@@ -336,6 +336,17 @@ const WageAnalysis = () => {
             )}
           </div>
         )}
+      </div>
+      <div className = "mt-12">
+         <p className = "text-left md:text-lg text-muted-foreground mt-3 mb-3">
+             Petitions associated with stronger compensation tend to be better prepared, backed by clearer job requirements, and filed by employers that understand the process well. These cases usually fall into established, high-skill occupations where the H-1B program is already well understood. Naturally, approval rates in these ranges rise.
+         </p>
+         <p className = "text-left md:text-lg text-muted-foreground mt-3 mb-3">
+             But the relationship is not linear. Once wages enter the extreme high-end of the market, approval rates plateau and even dip slightly. These ultra-high salaries often belong to niche or exceptional roles where job justification becomes more scrutinized, documentation is more complex, and the applicant pool is smaller. In other words, high wages alone are not a guarantee, they invite questions that employers must answer convincingly.
+           </p>
+           <p className = "text-left md:text-lg text-muted-foreground mt-3">
+               Put together, the data suggests a more nuanced story: <strong className = "text-[hsl(216,50%,30%)]">wage is a signal, not a shield.</strong> Higher compensation is associated with more credible, better-supported filings, but approval ultimately depends on the clarity of the role, the employer’s experience, and how well the position fits established H-1B norms, not on salary alone.
+           </p>
       </div>
     </section>
   );

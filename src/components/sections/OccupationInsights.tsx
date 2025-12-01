@@ -120,7 +120,7 @@ const OccupationInsights = () => {
     <section id="occupations" className="section-container bg-background">
       <div className="text-center mb-8">
         <h2 className="section-title">Top Occupations and Sponsors</h2>
-        <p className="text-justify text-left text-base md:text-lg text-muted-foreground mb-3">
+        <p className="text-justify text-base md:text-lg mb-3">
           When analyzing certified H-1B Labor Condition Applications across the United
           States, several occupation groups consistently rise to the top in terms of
           median salary. Among them, three major categories clearly dominate the upper end of the wage spectrum.
@@ -181,7 +181,7 @@ const OccupationInsights = () => {
         </div>
         
         <div className="mt-4 mb-12">
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="text-base md:text-lg leading-relaxed">
             Taken together, these patterns highlight how <strong className = "text-[hsl(216,50%,30%)]">specialized skills,
             high educational barriers, professional licensing, and strong industry
             demand</strong> shape the salary distribution across H-1B occupations.
@@ -229,8 +229,8 @@ const OccupationInsights = () => {
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={salaryDist}>
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-              <XAxis 
-                dataKey="binCenter" 
+              <XAxis
+                dataKey="binCenter"
                 stroke="hsl(var(--muted-foreground))"
                 tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
               />

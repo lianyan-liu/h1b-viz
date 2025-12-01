@@ -174,8 +174,13 @@ const GeographicInsights = () => {
       <div className="text-center mb-12">
         <h2 className="section-title">Where H1B Jobs Are Concentrated</h2>
         <p className="section-subtitle mx-auto">
-          State-level variation reveals distinct patterns: California leads in volume, while Washington 
-          commands the highest approval rates and median wages. Coastal concentration remains dominant.
+          H-1B opportunities cluster where specialized skills are in highest demand, not necessarily where the population or job market is largest.
+        </p>
+        <p className="text-left text-base md:text-lg mt-9">
+          H-1B jobs don’t spread evenly across the United States. They cluster where employers rely most on specialized talent. States with large tech hubs or major research institutions attract the highest volumes, while regions dominated by smaller markets or less knowledge-intensive industries naturally show lighter demand. Approval rates, however, don’t always follow volume: some low-volume states maintain exceptionally high approval ratios, often because only the most well-documented, high-intent petitions are filed there.
+        </p>
+        <p className="text-left text-base md:text-lg mt-3">
+          Wage patterns add another layer of contrast. Higher median salaries tend to appear in states with strong healthcare, government, or advanced-technology sectors rather than only in places with many filings. Together, these maps highlight a key point: where H-1B jobs concentrate tells us less about population or size of the state, and more about where employers are actively competing for scarce, highly specialized skill sets.
         </p>
       </div>
 

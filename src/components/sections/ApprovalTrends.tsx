@@ -109,10 +109,11 @@ const ApprovalTrends = () => {
     <section id="overview" className="section-container bg-background">
       <div className="text-center mb-12">
         <h2 className="section-title">Approval Trends Over Time</h2>
-        <p className="section-subtitle mx-auto">
-          The story of H-1B visas is one of resilience and adaptation. Each year tells a chapter - from 
-          the uncertainty of 2020 through the steady climb in approval rates after 2022. Behind every bar 
-          lies thousands of skilled professionals striving to work in the United States.
+        <p className="text-left md:text-lg mt-12 mb-3">
+            Despite fluctuations in total application volume, the H-1B approval landscape has become noticeably more stable and predictable over the past five years. Certified rates climbed <strong className = "text-primary"> from 90% to 96% </strong>, while denials steadily fell. Rather than signaling looser scrutiny, this pattern reflects employers becoming more disciplined—filing fewer speculative petitions and preparing stronger cases from the start. One of the most telling signs of this shift is the plunge in Certified-Withdrawn cases, dropping from over 45,000 in 2020 to fewer than 8,000 in 2024. Employers are no longer “over-filing” as a safety strategy; they are applying with clearer hiring intent and better alignment with actual roles.
+        </p>
+        <p className = "text-left md:text-lg mt-3">
+          Although application volume peaked in 2020 and then softened slightly by 2024, the overall picture is one of a system stabilizing after years of pandemic-era uncertainty. What emerges is a more intentional, quality-driven H-1B process, where approvals rise not because the bar is lower, but because the applicants and employers approaching it are better prepared.
         </p>
       </div>
 

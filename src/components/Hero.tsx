@@ -21,12 +21,10 @@ const Hero = () => {
           Data Behind <span className="text-[hsl(6,72%,45%)]">H1-B</span> Visas
         </h1>
         <p className="text-xl sm:text-2xl  text-[hsl(24,20%,25%)] mb-4 max-w-3xl mx-auto animate-slide-up">
-          Exploring trends in H1B visa applications from 2020–2024
+          Exploring landscape and trends in H1B visa applications from 2020–2025
         </p>
-        <p className="text-base sm:text-lg text-[hsl(24,20%,25%)] mb-12 max-w-2xl mx-auto animate-slide-up">
-          The H-1B visa allows specialized foreign workers into the U.S. when a skill gap exists
-          in the domestic labor market. The program is heavily weighted towards STEM, where software
-          developers represent 38% of the occupations.
+        <p className="text-base text-left sm:text-lg text-[hsl(24,20%,25%)] mb-12 max-w-4xl mx-auto animate-slide-up">
+            The H-1B program is one of the most competitive and misunderstood talent pipelines in the United States. This project digs into hundreds of thousands of certified Labor Condition Applications to uncover patterns in wages, approval trends, occupations, and geography. By combining data visualization with policy context, we highlight how employers hire, where opportunities concentrate, and how upcoming rule changes may reshape the path ahead. Whether you're a student, applicant, employer, or researcher, this dashboard helps you understand the forces shaping today’s H-1B landscape.
         </p>
         
         <button
