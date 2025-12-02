@@ -75,7 +75,7 @@ const Conclusion = () => {
         </div>
 
         <p className="text-[hsl(24,20%,25%)] mt-12 text-sm">
-          INFO 5920 Specialization Projects | Based on U.S. Department of Labor LCA data (2020-2024)
+          INFO 5920 Specialization Projects | Based on U.S. Department of Labor LCA Disclosure Data (2020-2025)
         </p>
       </div>
     </section>
