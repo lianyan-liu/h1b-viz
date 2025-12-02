@@ -21,9 +21,10 @@ interface ChartData {
 const ApprovalTrends = () => {
   const [data, setData] = useState<ChartData[]>([]);
   const [loading, setLoading] = useState(true);
+  const dataBase = import.meta.env.BASE_URL;
 
   useEffect(() => {
-    fetch("/data/h1b_year_status.csv")
+    fetch(`${dataBase}data/h1b_year_status.csv`)
       .then((response) => response.text())
       .then((csvText) => {
         Papa.parse<YearStatusData>(csvText, {

@@ -29,10 +29,11 @@ const PredictionTool = () => {
   const [prediction, setPrediction] = useState<number | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
   const [loading, setLoading] = useState(true);
+  const dataBase = import.meta.env.BASE_URL;
 
   useEffect(() => {
     // Load state data
-    fetch("/data/h1b_state_agg.csv")
+    fetch(`${dataBase}data/h1b_state_agg.csv`)
       .then((response) => response.text())
       .then((csvText) => {
         Papa.parse<StateData>(csvText, {
@@ -44,7 +45,7 @@ const PredictionTool = () => {
       });
 
     // Load occupation data
-    fetch("/data/H1B_dashboard_dataset.csv")
+    fetch(`${dataBase}data/H1B_dashboard_dataset.csv`)
       .then((response) => response.text())
       .then((csvText) => {
         Papa.parse(csvText, {

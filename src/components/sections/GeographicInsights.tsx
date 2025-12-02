@@ -29,6 +29,7 @@ const GeographicInsights = () => {
   const [geoData, setGeoData] = useState<any>(null);
   const [hoveredState, setHoveredState] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const dataBase = import.meta.env.BASE_URL;
     
     const nameToAbbr = useMemo(() => {
         const m: Record<string, string> = {};
@@ -76,7 +77,7 @@ const GeographicInsights = () => {
 
   useEffect(() => {
     // Load state data
-    fetch("/data/h1b_state_agg.csv")
+    fetch(`${dataBase}data/h1b_state_agg.csv`)
       .then((response) => response.text())
       .then((csvText) => {
         Papa.parse<StateData>(csvText, {
@@ -99,7 +100,7 @@ const GeographicInsights = () => {
       });
 
     // Load TopoJSON
-    fetch("/data/us-states-10m.json")
+    fetch(`${dataBase}data/us-states-10m.json`)
       .then((response) => response.json())
       .then((topology) => {
         const states = feature(topology, topology.objects.states);

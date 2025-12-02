@@ -34,9 +34,10 @@ const OccupationInsights = () => {
   const [salaryDist, setSalaryDist] = useState<SalaryDistribution[]>([]);
   const [occupationStats, setOccupationStats] = useState({ median: 0, q75: 0, q90: 0 });
   const [loading, setLoading] = useState(true);
+  const dataBase = import.meta.env.BASE_URL;
 
   useEffect(() => {
-    fetch("/data/H1B_dashboard_dataset.csv")
+    fetch(`${dataBase}data/H1B_dashboard_dataset.csv`)
       .then((response) => response.text())
       .then((csvText) => {
         Papa.parse<DashboardRow>(csvText, {
@@ -130,7 +131,7 @@ const OccupationInsights = () => {
         <div className="mb-6 grid gap-8 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.5fr)] items-center">
           <div className="flex justify-center">
             <img
-              src="/top paying industry.svg"
+              src={`${dataBase}top paying industry.svg`}
               alt="Illustration of top paying H1B jobs and industries"
               className="max-w-full h-auto"
             />

@@ -55,10 +55,11 @@ const WageAnalysis = () => {
   const [raw, setRaw] = useState<CleanRow[]>([]);
   const [view, setView] = useState<"rolling" | "bubble">("rolling");
   const [loading, setLoading] = useState(true);
+  const dataBase = import.meta.env.BASE_URL;
 
   useEffect(() => {
     let alive = true;
-    fetch("/data/25Q3_status_site_wage.csv")
+    fetch(`${dataBase}data/25Q3_status_site_wage.csv`)
       .then(r => r.text())
       .then(csv => {
         Papa.parse<Row>(csv, {
